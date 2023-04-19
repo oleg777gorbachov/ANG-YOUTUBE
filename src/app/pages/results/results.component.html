@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="result">
+        <p>
+            Results for: 
+        </p>
+        <h3>{{query}}</h3>
+    </div>
+
+    <div class="videos" *ngIf="videos">
+        <ng-container *ngFor="let item of videos">
+            <app-video-preview [item]="video(item)" *ngIf="isVideo(item)" />
+            <div *ngIf="!isVideo(item)" class="channel-item">
+                <a routerLink="{{'/channel/' + item.snippet.channelId}}">
+                    <img src="{{item.snippet.thumbnails.high.url}}" alt="channel" class="channel"/>
+                </a>
+                <div>
+                    <a routerLink="{{'/channel/' + item.snippet.channelId}}" class="channel-title">
+                        {{item.snippet.channelTitle}}
+                    </a>
+                    <p class="desc gray">
+                        {{item.snippet.description}}
+                    </p>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

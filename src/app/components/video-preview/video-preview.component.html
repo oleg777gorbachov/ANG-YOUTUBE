@@ -1,0 +1,28 @@
+<div
+  [style]="{
+    maxWidth: item.snippet.thumbnails.medium.width + 'px',
+    width: '100%'
+  }"
+  class="video"
+>
+  <a routerLink="/watch/{{ item.id.videoId }}" class="video-preview">
+    <img
+      src="{{ item.snippet.thumbnails.high.url }}"
+      width="{{ item.snippet.thumbnails.medium.width }}"
+      alt="thumbnail"
+    />
+  </a>
+  <div class="video-desc">
+    <a routerLink="/watch/{{ item.id.videoId }}">
+      {{ item.snippet.title }}
+    </a>
+    <div class="video-info">
+      <a class="info" routerLink="/channel/{{ item.snippet.channelId }}">
+        {{ item.snippet.channelTitle }}
+      </a>
+      <p class="info">
+        {{ item.snippet.publishTime | dateAgo }}
+      </p>
+    </div>
+  </div>
+</div>

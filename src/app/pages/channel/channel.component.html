@@ -1,0 +1,98 @@
+<div class="container" *ngIf="channel">
+  <div class="banner" [style]="bgImage()"></div>
+  <div class="channel">
+    <img
+      [src]="channel.snippet.thumbnails.high.url"
+      alt="avatar"
+      class="avatar"
+    />
+    <div>
+      <h3>{{ channel.snippet.title }}</h3>
+      <p class="gray">
+        {{ channel.statistics.subscriberCount | subscribes }} subscribers |
+        {{ channel.statistics.videoCount }} videos
+      </p>
+    </div>
+    <button class="subscribe">Subscribe</button>
+  </div>
+  <div class="state">
+    <ul>
+      <li
+        *ngFor="let item of items"
+        (click)="stateChange(item.value)"
+        [ngClass]="item.value === state ? 'selected' : ''"
+      >
+        {{ item.label | titlecase }}
+      </li>
+    </ul>
+  </div>
+  <div class="main" [ngSwitch]="state">
+    <ng-container *ngSwitchCase="'playlist'">
+      <div *ngIf="playlists" class="home-video about">
+        <div class="videos">
+          <app-playlist-item [item]="item" *ngFor="let item of playlists" (click)="playlistClick()"/>
+          <app-modal> Playlist doesn't works </app-modal>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'about'">
+      <div *ngIf="channel" class="home-video about main">
+        <div>
+          <h4>
+            {{channel.snippet.title}}
+          </h4>
+          <p>
+            {{channel.snippet.description}}
+          </p>
+        </div>
+        <div class="stats">
+          <p class="gray">
+            {{channel.statistics.viewCount | subscribes}} views
+          </p>
+          <p class="gray">
+            {{channel.snippet.publishedAt | date:'dd.MM.yyyy'}}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'video'">
+      <div *ngIf="videos" class="home-video videos">
+        <app-video-preview [item]="item" *ngFor="let item of videos"/>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <div *ngIf="isIncludeVideo && homeVideo" class="home-video main">
+        <iframe
+          [src]="src()"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          [width]="width"
+          [height]="height"
+        ></iframe>
+        <div [style]="{ maxWidth: '50%' }">
+          <a routerLink="/watch/{{homeVideo.id}}">
+            <h3>
+              {{ homeVideo.snippet.title }}
+            </h3>
+          </a>
+          <p class="gray mtop">
+            {{ homeVideo.snippet.publishedAt | dateAgo }} |
+            {{ homeVideo.statistics.viewCount | subscribes }} views
+          </p>
+          <p class="gray">
+            {{ homeVideo.statistics.likeCount | subscribes }} likes |
+            {{ homeVideo.statistics.commentCount | subscribes }} comments
+          </p>
+          <p class="desc">
+            {{ homeVideo.snippet.description }}
+          </p>
+          <a routerLink="/watch/{{homeVideo.id}}" >
+            Read More
+          </a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

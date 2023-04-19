@@ -1,0 +1,100 @@
+@import "../../vars";
+
+.banner {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.avatar {
+  max-width: 64px;
+  border-radius: 50%;
+}
+
+.channel {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+iframe {
+  width: 45vw;
+  height: calc(45 / 16 * 9vw);
+}
+
+.stats {
+  width: 100%;
+}
+
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.gray {
+  color: $grey;
+}
+
+.subscribe {
+  margin-left: auto;
+}
+
+ul {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+  li {
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+}
+
+.home-video {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 478px) {
+  .main {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  iframe {
+    width: 100vw;
+    height: calc(100vw / 16 * 9);
+  }
+}
+
+.selected {
+  color: $youtubeMain;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 1rem 0;
+}
+
+.mtop {
+  margin-top: 1rem;
+}

@@ -1,0 +1,33 @@
+@import "../../vars";
+
+h5 {
+  text-emphasis: inherit;
+}
+
+img {
+  clip-path: inset(30px 0 30px 0);
+  width: 100%;
+}
+
+.video {
+  height: 100%;
+  &-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-preview {
+    display: flex;
+  }
+}
+
+.info {
+  color: $grey;
+}
+
+.video-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}

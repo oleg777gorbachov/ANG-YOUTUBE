@@ -1,0 +1,44 @@
+@import "../../vars";
+
+.video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.videos {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.channel {
+  max-width: 196px;
+  border-radius: 50%;
+}
+
+.result {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.channel-title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.channel-item {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid $grey;
+  border-top: 1px solid $grey;
+}
+
+.desc {
+  color: $grey;
+}

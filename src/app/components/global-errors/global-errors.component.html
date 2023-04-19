@@ -1,0 +1,10 @@
+<div class="errors">
+  <div
+    class="error"
+    [ngClass]="item.hide ? 'hide' : 'show'"
+    *ngFor="let item of ErrorService.errors"
+  >
+    {{ item.message }}
+    <span (click)="ErrorService.remove(item.message)">&#10006;</span>
+  </div>
+</div>

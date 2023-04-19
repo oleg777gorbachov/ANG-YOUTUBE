@@ -1,0 +1,27 @@
+@import "../../vars";
+
+.videos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.video {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 768px) {
+  }
+}
+
+img {
+  clip-path: inset(30px 0 30px 0);
+  width: 100%;
+}
+
+.grey {
+  color: $grey;
+}

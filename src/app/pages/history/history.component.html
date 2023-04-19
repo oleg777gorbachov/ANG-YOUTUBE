@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>History</h3>
+  <div class="videos">
+    <div class="video" *ngFor="let item of items">
+      <a routerLink="/watch/{{ item.id }}" class="video-preview">
+        <img
+          src="{{ item.snippet.thumbnails.high.url }}"
+          width="{{ item.snippet.thumbnails.medium.width }}"
+          alt="thumbnail"
+        />
+      </a>
+      <div>
+        <a routerLink="/watch/{{ item.id }}">
+          {{ item.snippet.title }}
+        </a>
+        <div>
+          <p class="grey">
+            {{ item.snippet.publishedAt | dateAgo }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

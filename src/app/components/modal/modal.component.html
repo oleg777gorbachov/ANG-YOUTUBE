@@ -1,0 +1,10 @@
+<div
+  class="modal"
+  (click)="close()"
+  [ngClass]="!ModalService.state ? 'hide' : null"
+>
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="close" (click)="close()">&#x2715;</div>
+    <ng-content> </ng-content>
+  </div>
+</div>
